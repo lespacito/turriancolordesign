@@ -19,9 +19,4 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  build: {
-    outDir: "build",
-    sourcemap: true,
-    minify: "esbuild",
-  },
 });
