@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@/components/ui/button";
-import "./App.css";
 
 interface Bubble {
   id: number;
@@ -55,7 +54,7 @@ function App() {
     },
     {
       title: "Papiers peints",
-      icon: "📐",
+      icon: "/papierpeint.png",
       description:
         "Personnalisez votre intérieur avec des motifs uniques et élégants",
     },
@@ -87,7 +86,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen w-full bg-background">
       {/* Bubble Effects */}
       <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
         <AnimatePresence>
@@ -115,7 +114,7 @@ function App() {
       </div>
 
       {/* Header fixe */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center gap-2">
@@ -267,7 +266,7 @@ function App() {
         </div>
 
         {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
@@ -284,7 +283,7 @@ function App() {
       {/* Section Prestations - PINK */}
       <section
         id="services"
-        className="relative py-24 text-white"
+        className="relative py-24 text-foreground"
         style={{ background: "var(--turrian-pink)" }}
       >
         <div className="container mx-auto px-4">
@@ -310,7 +309,7 @@ function App() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="bg-white text-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all text-center"
+                className="bg-background text-foreground p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all text-center"
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -318,10 +317,18 @@ function App() {
                   style={{ background: "var(--turrian-icon-bg)" }}
                   onClick={createBubble}
                 >
-                  <span className="text-5xl">{service.icon}</span>
+                  {service.icon.startsWith("/") ? (
+                    <img
+                      src={service.icon}
+                      alt={service.title}
+                      className="w-16 h-16 object-contain"
+                    />
+                  ) : (
+                    <span className="text-5xl">{service.icon}</span>
+                  )}
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-foreground leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -330,7 +337,7 @@ function App() {
         </div>
 
         {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
@@ -347,7 +354,7 @@ function App() {
       {/* Section Compétences - ORANGE */}
       <section
         id="competences"
-        className="relative py-24 text-white"
+        className="relative py-24 text-foreground"
         style={{ background: "var(--turrian-orange)" }}
       >
         <div className="container mx-auto px-4">
@@ -356,12 +363,12 @@ function App() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl shadow-2xl p-12 border border-white/20"
+              className="bg-background rounded-3xl shadow-2xl p-12 border border-background/20"
             >
-              <h2 className="text-4xl font-bold mb-8 text-center text-gray-900">
+              <h2 className="text-4xl font-bold mb-8 text-center text-foreground">
                 Nos compétences
               </h2>
-              <div className="space-y-4 text-lg text-gray-700">
+              <div className="space-y-4 text-lg text-foreground">
                 {competences.map((comp, index) => (
                   <motion.p
                     key={index}
@@ -386,7 +393,7 @@ function App() {
         </div>
 
         {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
@@ -403,7 +410,7 @@ function App() {
       {/* Section Philosophie - GOLDEN YELLOW */}
       <section
         id="philosophie"
-        className="relative py-24 text-white"
+        className="relative py-24 text-foreground"
         style={{ background: "var(--turrian-yellow)" }}
       >
         <div className="container mx-auto px-4">
@@ -436,7 +443,7 @@ function App() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-[4/5] rounded-3xl shadow-2xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="aspect-4/5 rounded-3xl shadow-2xl overflow-hidden bg-background/10 backdrop-blur-sm border border-white/20">
                 <div className="w-full h-full flex items-center justify-center text-6xl">
                   🎨👷
                 </div>
@@ -446,7 +453,7 @@ function App() {
         </div>
 
         {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
@@ -463,7 +470,7 @@ function App() {
       {/* Section Contact - GREEN */}
       <section
         id="contact"
-        className="relative py-24 text-white"
+        className="relative py-24 text-foreground"
         style={{ background: "var(--turrian-green)" }}
       >
         <div className="container mx-auto px-4">
@@ -485,7 +492,7 @@ function App() {
               <motion.a
                 href="tel:+41795189598"
                 whileHover={{ scale: 1.05, y: -8 }}
-                className="flex flex-col items-center gap-4 transition-all cursor-pointer text-white no-underline"
+                className="flex flex-col items-center gap-4 transition-all cursor-pointer text-foreground no-underline"
               >
                 <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
                   📞
@@ -496,9 +503,9 @@ function App() {
               <motion.a
                 href="mailto:turriancolordesign@gmail.com"
                 whileHover={{ scale: 1.05, y: -8 }}
-                className="flex flex-col items-center gap-4 transition-all cursor-pointer text-white no-underline"
+                className="flex flex-col items-center gap-4 transition-all cursor-pointer text-foreground no-underline"
               >
-                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
+                <div className="w-20 h-20 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
                   ✉️
                 </div>
                 <p className="text-xl font-semibold break-all">
@@ -510,7 +517,7 @@ function App() {
                 whileHover={{ scale: 1.05, y: -8 }}
                 className="flex flex-col items-center gap-4 transition-all"
               >
-                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
+                <div className="w-20 h-20 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
                   📍
                 </div>
                 <p className="text-xl font-semibold">
@@ -523,7 +530,10 @@ function App() {
       </section>
 
       {/* Footer - BLUE */}
-      <footer className="py-12 text-white" style={{ background: "var(--turrian-blue)" }}>
+      <footer
+        className="py-12 text-foreground"
+        style={{ background: "var(--turrian-blue)" }}
+      >
         <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center mb-6">
             <img
