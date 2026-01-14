@@ -1,0 +1,6 @@
+# robots.txt pour Turrian Color & Design
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://turrian-colordesign.lespaci2.de/sitemap.xml

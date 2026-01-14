@@ -120,7 +120,7 @@ function App() {
             <a href="/" className="flex items-center gap-2">
               <img
                 src="/logo.jpg"
-                alt="Turrian Color & Design"
+                alt="Turrian Color & Design - Expert en peinture et décoration en Suisse"
                 className="h-16 w-auto object-contain"
               />
             </a>
@@ -198,7 +198,7 @@ function App() {
               >
                 <img
                   src="/logo.jpg"
-                  alt="Turrian Color & Design"
+                  alt="Turrian Color & Design - Peinture, crépis et décoration professionnelle à Botterens, Suisse"
                   className="w-full md:w-auto md:h-96 object-contain"
                 />
               </motion.div>
@@ -538,7 +538,7 @@ function App() {
           <div className="flex justify-center mb-6">
             <img
               src="/logo.jpg"
-              alt="Turrian Color & Design"
+              alt="Logo Turrian Color & Design - Peintre professionnel en Suisse"
               className="h-32 w-auto object-contain"
             />
           </div>
