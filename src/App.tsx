@@ -194,12 +194,12 @@ function App() {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex justify-center mb-8"
+                className="flex justify-center mb-12 -mx-4 md:mx-0"
               >
                 <img
                   src="/logo.jpg"
                   alt="Turrian Color & Design"
-                  className="h-48 w-auto object-contain"
+                  className="w-full md:w-auto md:h-96 object-contain"
                 />
               </motion.div>
 
