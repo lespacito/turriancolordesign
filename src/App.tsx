@@ -50,7 +50,7 @@ function App() {
       title: "Crépis & façades",
       icon: "🏠",
       description:
-        "Protégez et embellissez vos façades avec nos solutions sur mesure",
+        "Protégez et embellissez vos murs avec nos solutions sur mesure",
     },
     {
       title: "Papiers peints",
@@ -69,15 +69,15 @@ function App() {
       description: "Transformez entièrement vos espaces avec notre expertise",
     },
     {
-      title: "Béton ciré",
+      title: "Béton apparent",
       icon: "🪨",
-      description: "Un look moderne et durable pour vos sols et surfaces",
+      description: "Un look moderne et durable pour vos surfaces",
     },
   ];
 
   const competences = [
     "Neuf & Rénovation",
-    "Peinture et crépis intérieur & extérieur",
+    "Peinture et crépis intérieur, porte et fenêtres",
     "Papier peint, tapisserie, ingrain",
     "Isolation périphérique et rénovation de façade",
     "Décoration intérieur: Stucco, Sablé, Marbré etc...",
@@ -150,7 +150,7 @@ function App() {
                 Contact
               </a>
             </nav>
-            <Button asChild size="lg">
+            <Button asChild size="lg" variant={"outline"}>
               <a href="tel:+41795189598">079 518 95 98</a>
             </Button>
           </div>
@@ -197,13 +197,13 @@ function App() {
                 className="flex justify-center mb-12 -mx-4 md:mx-0"
               >
                 <img
-                  src="/logo.jpg"
+                  src="/hero-image.jpg"
                   alt="Turrian Color & Design - Peinture, crépis et décoration professionnelle à Botterens, Suisse"
-                  className="w-full md:w-auto md:h-96 object-contain"
+                  className="w-full md:w-auto md:h-150 object-contain"
                 />
               </motion.div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-bold mb-10 leading-tight">
                 <span className="text-foreground">Transformez vos espaces</span>
                 <br />
                 <span
@@ -214,18 +214,21 @@ function App() {
                 </span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
-                Envie de changement ? Besoin de rénover un bien ? Envie de créer
-                le logement de vos rêves ?
-                <span className="font-semibold text-foreground">
-                  {" "}
-                  Notre équipe sera à votre écoute
-                </span>{" "}
-                afin de réaliser le projet de vos rêves dans les meilleures
-                conditions !
-              </p>
+              <div className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto space-y-4">
+                <p className="leading-relaxed">
+                  Envie de changement ? Besoin de rénover un bien ? Envie de créer
+                  le logement de vos rêves ?
+                </p>
+                <p className="leading-relaxed">
+                  <span className="font-semibold text-foreground">
+                    Notre équipe sera à votre écoute
+                  </span>{" "}
+                  afin de réaliser le projet de vos rêves dans les meilleures
+                  conditions !
+                </p>
+              </div>
 
-              <p className="text-3xl font-bold mb-10">
+              <p className="text-3xl font-bold mb-14">
                 <span
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "var(--gradient-rainbow)" }}
@@ -241,6 +244,7 @@ function App() {
                 >
                   <Button
                     asChild
+                    variant="secondary"
                     size="lg"
                     className="px-8 py-4 text-lg shadow-lg"
                   >
@@ -376,7 +380,7 @@ function App() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3"
+                    className="flex items-center justify-center gap-3"
                   >
                     <span
                       className="text-2xl"
@@ -508,7 +512,7 @@ function App() {
                 <div className="w-20 h-20 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
                   ✉️
                 </div>
-                <p className="text-xl font-semibold break-all">
+                <p className="text-xl font-semibold text-center">
                   turriancolordesign@gmail.com
                 </p>
               </motion.a>
@@ -526,6 +530,20 @@ function App() {
               </motion.div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Wave Divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-full h-24"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              fill="var(--turrian-blue)"
+            ></path>
+          </svg>
         </div>
       </section>
 
@@ -545,6 +563,16 @@ function App() {
           <p className="text-xl mb-6 opacity-75">Osez rêver en couleur</p>
           <p className="opacity-75">
             © 2026 Turrian Color & Design - Tous droits réservés
+          </p>
+          <p className="text-sm opacity-50 mt-4">
+            <a
+              href="https://github.com/lespacito"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-100 transition-opacity"
+            >
+              Site développé par lespacito
+            </a>
           </p>
         </div>
       </footer>
