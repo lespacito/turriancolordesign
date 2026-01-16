@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 interface Bubble {
   id: number;
@@ -41,10 +42,10 @@ function App() {
 
   const services = [
     {
-      title: "Peinture intérieure & extérieure",
+      title: "Peinture intérieure & extérieure, portes et fenêtres",
       icon: "🎨",
       description:
-        "Transformez vos murs avec une finition professionnelle et durable",
+        "Transformez vos murs, portes et fenêtres avec une finition professionnelle et durable",
     },
     {
       title: "Crépis & façades",
@@ -71,13 +72,13 @@ function App() {
     {
       title: "Béton apparent",
       icon: "🪨",
-      description: "Un look moderne et durable pour vos surfaces",
+      description: "Un look moderne et durable pour toutes vos surfaces",
     },
   ];
 
   const competences = [
     "Neuf & Rénovation",
-    "Peinture et crépis intérieur, porte et fenêtres",
+    "Peinture et crépis intérieur & extérieur",
     "Papier peint, tapisserie, ingrain",
     "Isolation périphérique et rénovation de façade",
     "Décoration intérieur: Stucco, Sablé, Marbré etc...",
@@ -199,7 +200,7 @@ function App() {
                 <img
                   src="/hero-image.jpg"
                   alt="Turrian Color & Design - Peinture, crépis et décoration professionnelle à Botterens, Suisse"
-                  className="w-full md:w-auto md:h-150 object-contain"
+                  className="w-full h-125 md:w-auto md:h-225 object-contain"
                 />
               </motion.div>
 
@@ -216,8 +217,8 @@ function App() {
 
               <div className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto space-y-4">
                 <p className="leading-relaxed">
-                  Envie de changement ? Besoin de rénover un bien ? Envie de créer
-                  le logement de vos rêves ?
+                  Envie de changement ? Besoin de rénover un bien ? Envie de
+                  créer le logement de vos rêves&nbsp;?
                 </p>
                 <p className="leading-relaxed">
                   <span className="font-semibold text-foreground">
@@ -362,38 +363,36 @@ function App() {
         style={{ background: "var(--turrian-orange)" }}
       >
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="bg-background rounded-3xl shadow-2xl p-12 border border-background/20"
-            >
-              <h2 className="text-4xl font-bold mb-8 text-center text-foreground">
-                Nos compétences
-              </h2>
-              <div className="space-y-4 text-lg text-foreground">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="bg-card rounded-2xl shadow-xl py-8 px-8 md:py-12 md:px-16 text-center md:text-left">
+              <h2 className="text-4xl font-bold mb-8">Nos compétences</h2>
+              <div className="space-y-4 text-left">
                 {competences.map((comp, index) => (
-                  <motion.p
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center justify-center gap-3"
+                    className="flex items-start gap-3"
                   >
                     <span
-                      className="text-2xl"
+                      className="text-2xl shrink-0"
                       style={{ color: "var(--turrian-blue)" }}
                     >
                       ✓
-                    </span>{" "}
-                    {comp}
-                  </motion.p>
+                    </span>
+                    <span>{comp}</span>
+                  </motion.div>
                 ))}
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Wave Divider */}
