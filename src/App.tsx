@@ -245,7 +245,7 @@ function App() {
                 >
                   <Button
                     asChild
-                    variant="secondary"
+                    variant="outline"
                     size="lg"
                     className="px-8 py-4 text-lg shadow-lg"
                   >
