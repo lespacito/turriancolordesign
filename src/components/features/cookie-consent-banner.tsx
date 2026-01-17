@@ -1,4 +1,3 @@
-import * as React from "react";
 import CookieConsent from "react-cookie-consent";
 
 interface CookieConsentBannerProps {
@@ -6,10 +5,14 @@ interface CookieConsentBannerProps {
   onDecline?: () => void;
 }
 
-export function CookieConsentBanner({ onAccept, onDecline }: CookieConsentBannerProps) {
+export function CookieConsentBanner({
+  onAccept,
+  onDecline,
+}: CookieConsentBannerProps) {
   const handleAccept = () => {
     // Initialize GA4 when user accepts
-    const initGA = (window as unknown as { initializeGA?: () => void }).initializeGA;
+    const initGA = (window as unknown as { initializeGA?: () => void })
+      .initializeGA;
     if (initGA) {
       initGA();
     }
@@ -66,22 +69,29 @@ export function CookieConsentBanner({ onAccept, onDecline }: CookieConsentBanner
       buttonWrapperClasses="cookie-consent-buttons"
     >
       <span style={{ fontSize: "14px", lineHeight: "1.6", color: "white" }}>
-        Nous utilisons des cookies pour analyser le trafic de notre site web et améliorer votre expérience.
-        En cliquant sur "Accepter", vous consentez à notre utilisation des cookies d'analyse.{" "}
-        <a
-          href="#"
+        Nous utilisons des cookies pour analyser le trafic de notre site web et
+        améliorer votre expérience. En cliquant sur "Accepter", vous consentez à
+        notre utilisation des cookies d'analyse.{" "}
+        <button
+          type="button"
           style={{
+            background: "none",
+            border: "none",
             color: "#f9a825",
             textDecoration: "underline",
-            fontWeight: "500"
+            fontWeight: "500",
+            cursor: "pointer",
+            padding: 0,
+            font: "inherit",
           }}
-          onClick={(e) => {
-            e.preventDefault();
-            alert("Politique de confidentialité: Turrian Color & Design utilise Google Analytics pour analyser le trafic du site. Les données sont anonymisées et conservées pendant 2 mois maximum. Vous pouvez retirer votre consentement à tout moment en supprimant les cookies de votre navigateur.");
+          onClick={() => {
+            alert(
+              "Politique de confidentialité: Turrian Color & Design utilise Google Analytics pour analyser le trafic du site. Les données sont anonymisées et conservées pendant 2 mois maximum. Vous pouvez retirer votre consentement à tout moment en supprimant les cookies de votre navigateur.",
+            );
           }}
         >
           En savoir plus
-        </a>
+        </button>
       </span>
     </CookieConsent>
   );
