@@ -376,7 +376,7 @@ function App() {
                     <img
                       src={service.icon}
                       alt={service.title}
-                      className="w-24 h-24 object-contain"
+                      className="w-20 h-20 object-contain"
                     />
                   ) : (
                     <span className="text-5xl">{service.icon}</span>
