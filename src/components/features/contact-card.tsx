@@ -1,11 +1,9 @@
 import { motion } from "motion/react";
 import type { ContactMethod } from "@/types";
 
-interface ContactCardProps extends ContactMethod {
-  onClick?: () => void;
-}
+interface ContactCardProps extends ContactMethod {}
 
-export function ContactCard({ icon, label, href, type, onClick }: ContactCardProps) {
+export function ContactCard({ icon, label, href, type }: ContactCardProps) {
   const content = (
     <>
       <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg border-2 border-white/40">
@@ -25,7 +23,7 @@ export function ContactCard({ icon, label, href, type, onClick }: ContactCardPro
 
   if (href) {
     return (
-      <motion.a href={href} {...motionProps} onClick={onClick}>
+      <motion.a href={href} {...motionProps}>
         {content}
       </motion.a>
     );

@@ -17,7 +17,6 @@
     "lucide-react": "^0.562.0",
     "motion": "^12.26.2",
     "react": "^19.2.0",
-    "react-cookie-consent": "^10.0.1",
     "react-dom": "^19.2.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18"

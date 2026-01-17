@@ -29,7 +29,7 @@ npm run lint
 - **Styling**: Tailwind CSS 4 (using new inline theme syntax with OKLCH colors)
 - **Animations**: Motion library (formerly Framer Motion)
 - **UI Components**: Custom components built with Radix UI primitives
-- **Analytics**: Google Analytics 4 with GDPR/FADP compliant cookie consent
+- **Analytics**: Umami Analytics (privacy-focused, self-hosted)
 - **Package Manager**: pnpm (note: pnpm-lock.yaml present)
 
 ## Architecture & Code Organization
@@ -40,12 +40,11 @@ npm run lint
 src/
 ├── components/
 │   ├── ui/              # Reusable UI primitives (button, card, badge, etc.)
-│   ├── features/        # Feature-specific components (service-card, contact-card, cookie-consent-banner, etc.)
-│   └── providers/       # React context providers (bubble-provider, analytics-provider)
+│   ├── features/        # Feature-specific components (service-card, contact-card, etc.)
+│   └── providers/       # React context providers (bubble-provider)
 ├── hooks/               # Custom React hooks (use-bubble-animation)
 ├── lib/
 │   ├── constants.ts     # Application constants (services, colors, contact info)
-│   ├── analytics.ts     # Google Analytics utilities (initGA, trackEvent, trackPageView)
 │   └── utils.ts         # Utility functions (cn for className merging)
 ├── types/
 │   └── index.ts         # TypeScript type definitions
@@ -140,95 +139,51 @@ To update content, edit the constants in `src/lib/constants.ts`:
 - Robots: `public/robots.txt`
 - Images have descriptive alt text for accessibility and SEO
 
-## Google Analytics Setup
+## Analytics Setup
 
-**Implementation**: Google Analytics 4 (GA4) with GDPR/FADP compliance
+**Implementation**: Umami Analytics - Privacy-focused, GDPR compliant
 
 ### Configuration
 
-1. **Environment Variable**: Set `VITE_GA_MEASUREMENT_ID` in `.env.local`
-   ```bash
-   VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-   ```
+The analytics script is integrated directly in `index.html`:
 
-2. **Privacy Settings**:
-   - Cookie consent banner (required by Swiss FDPIC)
-   - 2-month data retention for privacy compliance
-   - Automatic IP anonymization (built into GA4)
-   - User can accept or decline tracking
-
-### Architecture
-
-**Analytics Provider** (`src/components/providers/analytics-provider.tsx`):
-- React context provider wrapping the entire app
-- Initializes GA4 only after user consent
-- Exposes `trackEvent` and `trackPageView` methods via `useAnalytics()` hook
-
-**Cookie Consent** (`src/components/features/cookie-consent-banner.tsx`):
-- GDPR/FADP compliant consent banner
-- Styled with Turrian brand colors
-- Stores consent preference for 1 year
-- Triggers GA4 initialization on acceptance
-
-**Analytics Utilities** (`src/lib/analytics.ts`):
-- `initGA()` - Dynamically loads and initializes GA4 script
-- `trackEvent()` - Send custom events
-- `trackPageView()` - Manual page view tracking (required for SPAs)
-- Uses native `arguments` object (critical for proper GA4 function)
-
-### Event Tracking
-
-The following user interactions are automatically tracked:
-
-1. **Service Clicks** (`service_click`):
-   - Triggered when user clicks service card icons
-   - Includes service name in event data
-
-2. **Contact Clicks** (`contact_click`):
-   - Triggered when user clicks phone, email, or address
-   - Includes contact type and label
-
-3. **Navigation Clicks** (`navigation_click`):
-   - Triggered when user clicks navigation menu items
-   - Includes navigation label and href
-
-### Using Analytics in Components
-
-```typescript
-import { useAnalytics } from "@/components/providers/analytics-provider";
-
-function MyComponent() {
-  const { trackEvent, trackPageView, isInitialized } = useAnalytics();
-
-  const handleClick = () => {
-    trackEvent("custom_event", {
-      event_category: "engagement",
-      event_label: "button_click",
-      custom_param: "value"
-    });
-  };
-
-  // ...
-}
+```html
+<script
+  defer
+  src="https://analytics.turriancolordesign.ch/script.js"
+  data-website-id="64c4167d-0d50-4e16-b732-12e15ac67ad9"
+></script>
 ```
 
-### Performance Optimizations
+### Features
 
-- Preconnect links in `index.html` for faster GA4 script loading
-- Async script loading to prevent blocking page render
-- Manual page view tracking prevents duplicate events in SPA
-- GA4 initializes only after user consent
+- **Privacy-First**: No cookies required, GDPR compliant by default
+- **Open Source**: Self-hosted Umami instance
+- **Lightweight**: Minimal performance impact
+- **No Consent Banner**: Umami doesn't use cookies or track personal data
+- **Real-time**: Track page views, events, and user behavior
+- **Swiss Hosted**: Data stays in Switzerland (analytics.turriancolordesign.ch)
+
+### What's Tracked
+
+Umami automatically tracks:
+- Page views
+- Referrers
+- Browser and OS information
+- Device type (desktop, mobile, tablet)
+- Country (based on IP, not stored)
+
+All data is aggregated and anonymous. No personal information is collected.
 
 ### Privacy Compliance
 
 Complies with:
 - **Swiss FADP** (Federal Act on Data Protection)
-- **GDPR** (General Data Protection Regulation) for EU visitors
-- **FDPIC Guidelines** (October 2025 cookie consent requirements)
+- **GDPR** (General Data Protection Regulation)
+- **ePrivacy Directive**
 
-Features:
-- Explicit opt-in consent (no pre-checked boxes)
-- Easy opt-out (decline button equally prominent)
-- Privacy policy link in consent banner
-- Data retention limited to 2 months
-- IP anonymization enabled
+No cookie banner required because Umami:
+- Doesn't use cookies
+- Doesn't track individuals
+- Doesn't collect personal data
+- Uses anonymized aggregate data only
