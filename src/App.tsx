@@ -157,15 +157,28 @@ function App() {
                 Réalisations
               </a>
             </nav>
-            <div className="flex items-center gap-3">
-              <Button asChild size="lg" variant={"outline"}>
+            <div className="flex items-center gap-2">
+              {/* Version desktop - texte complet */}
+              <Button asChild size="lg" variant={"outline"} className="hidden lg:flex">
                 <a href="mailto:turriancolordesign@gmail.com">
                   <span className="grayscale">✉️</span>{" "}
                   turriancolordesign@gmail.com
                 </a>
               </Button>
-              <Button asChild size="lg" variant={"outline"}>
+              <Button asChild size="lg" variant={"outline"} className="hidden lg:flex">
                 <a href="tel:+41795189598">📞 079 518 95 98</a>
+              </Button>
+
+              {/* Version mobile/tablette - icônes uniquement */}
+              <Button asChild size="sm" variant={"outline"} className="lg:hidden">
+                <a href="mailto:turriancolordesign@gmail.com" aria-label="Email">
+                  <span className="grayscale">✉️</span>
+                </a>
+              </Button>
+              <Button asChild size="sm" variant={"outline"} className="lg:hidden">
+                <a href="tel:+41795189598" aria-label="Téléphone">
+                  📞
+                </a>
               </Button>
             </div>
           </div>
@@ -460,10 +473,12 @@ function App() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-4/5 rounded-3xl shadow-2xl overflow-hidden bg-background/10 backdrop-blur-sm border border-white/20">
-                <div className="w-full h-full flex items-center justify-center text-6xl">
-                  🎨👷
-                </div>
+              <div className="rounded-3xl shadow-2xl overflow-hidden bg-white">
+                <img
+                  src="/peintre-renovation.png"
+                  alt="Peintres en rénovation - Turrian Color & Design"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>
