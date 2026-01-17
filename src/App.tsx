@@ -159,23 +159,46 @@ function App() {
             </nav>
             <div className="flex items-center gap-2">
               {/* Version desktop - texte complet */}
-              <Button asChild size="lg" variant={"outline"} className="hidden lg:flex">
+              <Button
+                asChild
+                size="lg"
+                variant={"outline"}
+                className="hidden lg:flex"
+              >
                 <a href="mailto:turriancolordesign@gmail.com">
                   <span className="grayscale">✉️</span>{" "}
                   turriancolordesign@gmail.com
                 </a>
               </Button>
-              <Button asChild size="lg" variant={"outline"} className="hidden lg:flex">
+              <Button
+                asChild
+                size="lg"
+                variant={"outline"}
+                className="hidden lg:flex"
+              >
                 <a href="tel:+41795189598">📞 079 518 95 98</a>
               </Button>
 
               {/* Version mobile/tablette - icônes uniquement */}
-              <Button asChild size="sm" variant={"outline"} className="lg:hidden">
-                <a href="mailto:turriancolordesign@gmail.com" aria-label="Email">
+              <Button
+                asChild
+                size="sm"
+                variant={"outline"}
+                className="lg:hidden"
+              >
+                <a
+                  href="mailto:turriancolordesign@gmail.com"
+                  aria-label="Email"
+                >
                   <span className="grayscale">✉️</span>
                 </a>
               </Button>
-              <Button asChild size="sm" variant={"outline"} className="lg:hidden">
+              <Button
+                asChild
+                size="sm"
+                variant={"outline"}
+                className="lg:hidden"
+              >
                 <a href="tel:+41795189598" aria-label="Téléphone">
                   📞
                 </a>
@@ -457,7 +480,7 @@ function App() {
                 Notre équipe est composée d'experts reconnus dans leur domaine
                 et nous recherchons constamment des solutions novatrices pour
                 améliorer l'efficacité, la sécurité et la durabilité des projets
-                de construction.
+                de construction et de rénovation.
               </p>
               <p className="text-xl opacity-90 leading-relaxed">
                 Nous sommes fiers de notre capacité à fournir un travail de
@@ -627,7 +650,7 @@ function App() {
                   alt={image.alt}
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-t from-bg-foreground/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
