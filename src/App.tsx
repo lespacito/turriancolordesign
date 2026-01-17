@@ -42,7 +42,7 @@ function App() {
   const services = [
     {
       title: "Peinture intérieure & extérieure",
-      icon: "🎨",
+      icon: "/peinture.png",
       description:
         "Transformez vos murs, portes et fenêtres avec une finition professionnelle et durable",
     },
