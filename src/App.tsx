@@ -41,7 +41,7 @@ function App() {
 
   const services = [
     {
-      title: "Peinture intérieure & extérieure, portes et fenêtres",
+      title: "Peinture intérieure & extérieure",
       icon: "🎨",
       description:
         "Transformez vos murs, portes et fenêtres avec une finition professionnelle et durable",
@@ -60,7 +60,7 @@ function App() {
     },
     {
       title: "Décoration intérieure",
-      icon: "✨",
+      icon: "/deco.webp",
       description: "Créez des ambiances uniques avec nos enduits décoratifs",
     },
     {
@@ -78,11 +78,12 @@ function App() {
   const competences = [
     "Neuf & Rénovation",
     "Peinture et crépis intérieur & extérieur",
-    "Papier peint, tapisserie, ingrain",
+    "Papier peint, tapisserie, ingrain etc ...",
     "Isolation périphérique et rénovation de façade",
     "Décoration intérieur: Stucco, Sablé, Marbré etc...",
     "Béton apparent, ciré",
     "Entretient bois naturel",
+    "Faux plafond, cloison placo plâtre et mur alba",
   ];
 
   return (
@@ -156,9 +157,17 @@ function App() {
                 Réalisations
               </a>
             </nav>
-            <Button asChild size="lg" variant={"outline"}>
-              <a href="tel:+41795189598">079 518 95 98</a>
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button asChild size="lg" variant={"outline"}>
+                <a href="mailto:turriancolordesign@gmail.com">
+                  <span className="grayscale">✉️</span>{" "}
+                  turriancolordesign@gmail.com
+                </a>
+              </Button>
+              <Button asChild size="lg" variant={"outline"}>
+                <a href="tel:+41795189598">📞 079 518 95 98</a>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -573,20 +582,20 @@ function App() {
           <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {[
               {
-                src: "/chantier_0.jpg",
-                alt: "Enduit décoratif texturé beige",
+                src: "/chantier_0.webp",
+                alt: "Béton ciré - Mur escalier effet béton décoratif gris",
               },
               {
-                src: "/chantier_1.jpg",
-                alt: "Salle de bain avec peinture verte et boiseries",
+                src: "/chantier_1.webp",
+                alt: "Carrelage - Salle de bain moderne avec carrelage vert et boiseries",
               },
               {
-                src: "/chantier_2.jpg",
-                alt: "Mur décoratif blanc effet marbré",
+                src: "/chantier_2.webp",
+                alt: "Enduit sablé - Mur décoratif texturé beige",
               },
               {
-                src: "/chantier_3.jpg",
-                alt: "Mur escalier effet béton ciré gris",
+                src: "/chantier_3.webp",
+                alt: "Stucco - Mur escalier effet stucco vénitien gris",
               },
             ].map((image, index) => (
               <motion.div
