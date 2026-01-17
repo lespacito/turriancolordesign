@@ -197,7 +197,7 @@ function App() {
                 className="flex justify-center mb-12 -mx-4 md:mx-0"
               >
                 <img
-                  src="/hero-image.jpg"
+                  src="/FLYERPROMOFINAL.jpg"
                   alt="Turrian Color & Design - Peinture, crépis et décoration professionnelle à Botterens, Suisse"
                   className="w-full h-125 md:w-auto md:h-225 object-contain"
                 />
@@ -216,15 +216,15 @@ function App() {
 
               <div className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto space-y-4">
                 <p className="leading-relaxed">
-                  Envie de changement ? Besoin de rénover un bien ? Envie de
-                  créer le logement de vos rêves&nbsp;?
+                  Envie de changement? Besoin de rénover un bien? Envie de créer
+                  le logement de vos rêves?
                 </p>
                 <p className="leading-relaxed">
                   <span className="font-semibold text-foreground">
                     Notre équipe sera à votre écoute
                   </span>{" "}
                   afin de réaliser le projet de vos rêves dans les meilleures
-                  conditions !
+                  conditions!
                 </p>
               </div>
 
