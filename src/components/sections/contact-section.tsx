@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Section } from "@/components/ui/section";
 import { ContactCard } from "@/components/features/contact-card";
+import { useAnalytics } from "@/components/providers/analytics-provider";
 import type { ContactMethod } from "@/types";
 
 interface ContactSectionProps {
@@ -14,6 +15,16 @@ export function ContactSection({
   subheading,
   methods,
 }: ContactSectionProps) {
+  const { trackEvent } = useAnalytics();
+
+  const handleContactClick = (method: ContactMethod) => {
+    trackEvent("contact_click", {
+      event_category: "engagement",
+      event_label: method.label,
+      contact_type: method.type,
+    });
+  };
+
   return (
     <Section
       id="contact"
@@ -33,7 +44,11 @@ export function ContactSection({
 
           <div className="grid md:grid-cols-3 gap-8">
             {methods.map((method) => (
-              <ContactCard key={method.type} {...method} />
+              <ContactCard
+                key={method.type}
+                {...method}
+                onClick={() => handleContactClick(method)}
+              />
             ))}
           </div>
         </motion.div>

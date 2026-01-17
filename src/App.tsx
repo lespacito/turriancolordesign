@@ -1,5 +1,7 @@
 import { BubbleProvider } from "@/components/providers/bubble-provider";
+import { AnalyticsProvider } from "@/components/providers/analytics-provider";
 import { BubbleEffect } from "@/components/features/bubble-effect";
+import { CookieConsentBanner } from "@/components/features/cookie-consent-banner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -17,10 +19,14 @@ import {
 } from "@/lib/constants";
 
 function App() {
+  const gaID = import.meta.env.VITE_GA_MEASUREMENT_ID;
+
   return (
-    <BubbleProvider>
-      <div className="min-h-screen w-full bg-background">
-        <BubbleEffect />
+    <AnalyticsProvider measurementId={gaID}>
+      <BubbleProvider>
+        <div className="min-h-screen w-full bg-background">
+          <BubbleEffect />
+          <CookieConsentBanner />
 
         <Header
           logoSrc="/logo.jpg"
@@ -81,6 +87,7 @@ function App() {
         />
       </div>
     </BubbleProvider>
+    </AnalyticsProvider>
   );
 }
 

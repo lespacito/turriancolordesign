@@ -1,3 +1,4 @@
+import { useAnalytics } from "@/components/providers/analytics-provider";
 import type { NavMenuItem } from "@/types";
 
 interface NavMenuProps {
@@ -5,6 +6,16 @@ interface NavMenuProps {
 }
 
 export function NavMenu({ items }: NavMenuProps) {
+  const { trackEvent } = useAnalytics();
+
+  const handleNavClick = (item: NavMenuItem) => {
+    trackEvent("navigation_click", {
+      event_category: "navigation",
+      event_label: item.label,
+      nav_href: item.href,
+    });
+  };
+
   return (
     <nav
       className="hidden md:flex items-center gap-8"
@@ -15,6 +26,7 @@ export function NavMenu({ items }: NavMenuProps) {
           key={item.href}
           href={item.href}
           className="text-foreground hover:text-primary transition-colors font-medium"
+          onClick={() => handleNavClick(item)}
         >
           {item.label}
         </a>

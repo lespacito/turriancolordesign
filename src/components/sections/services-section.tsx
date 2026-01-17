@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Section } from "@/components/ui/section";
 import { ServiceCard } from "@/components/features/service-card";
 import { useBubbles } from "@/components/providers/bubble-provider";
+import { useAnalytics } from "@/components/providers/analytics-provider";
 import type { Service } from "@/types";
 
 interface ServicesSectionProps {
@@ -10,6 +11,19 @@ interface ServicesSectionProps {
 
 export function ServicesSection({ services }: ServicesSectionProps) {
   const { createBubble } = useBubbles();
+  const { trackEvent } = useAnalytics();
+
+  const handleServiceClick = (e: React.MouseEvent<HTMLDivElement>, service: Service) => {
+    // Create bubble effect
+    createBubble(e);
+
+    // Track analytics event
+    trackEvent("service_click", {
+      event_category: "engagement",
+      event_label: service.title,
+      service_name: service.title,
+    });
+  };
 
   return (
     <Section
@@ -38,7 +52,7 @@ export function ServicesSection({ services }: ServicesSectionProps) {
               key={index}
               {...service}
               index={index}
-              onIconClick={createBubble}
+              onIconClick={(e) => handleServiceClick(e, service)}
             />
           ))}
         </div>
