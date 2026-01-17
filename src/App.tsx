@@ -149,6 +149,12 @@ function App() {
               >
                 Contact
               </a>
+              <a
+                href="#realisations"
+                className="text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Réalisations
+              </a>
             </nav>
             <Button asChild size="lg" variant={"outline"}>
               <a href="tel:+41795189598">079 518 95 98</a>
@@ -528,6 +534,79 @@ function App() {
               </motion.div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Wave Divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-full h-24"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              fill="var(--turrian-blue)"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      {/* Section Réalisations - BLUE */}
+      <section
+        id="realisations"
+        className="relative py-24 text-foreground"
+        style={{ background: "var(--turrian-blue)" }}
+      >
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-bold mb-4">Nos réalisations</h2>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              Découvrez quelques-uns de nos projets récents
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                src: "/chantier_0.jpg",
+                alt: "Enduit décoratif texturé beige",
+              },
+              {
+                src: "/chantier_1.jpg",
+                alt: "Salle de bain avec peinture verte et boiseries",
+              },
+              {
+                src: "/chantier_2.jpg",
+                alt: "Mur décoratif blanc effet marbré",
+              },
+              {
+                src: "/chantier_3.jpg",
+                alt: "Mur escalier effet béton ciré gris",
+              },
+            ].map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer group"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Wave Divider */}
