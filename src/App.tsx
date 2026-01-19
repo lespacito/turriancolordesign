@@ -1,19 +1,19 @@
-import { BubbleProvider } from "@/components/providers/bubble-provider";
 import { BubbleEffect } from "@/components/features/bubble-effect";
-import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { HeroSection } from "@/components/sections/hero-section";
-import { ServicesSection } from "@/components/sections/services-section";
-import { CompetencesSection } from "@/components/sections/competences-section";
+import { Header } from "@/components/layout/header";
+import { BubbleProvider } from "@/components/providers/bubble-provider";
 import { AboutSection } from "@/components/sections/about-section";
+import { CompetencesSection } from "@/components/sections/competences-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { GallerySection } from "@/components/sections/gallery-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { ServicesSection } from "@/components/sections/services-section";
 import {
-  SERVICES,
   COMPETENCES,
-  NAV_ITEMS,
-  GALLERY_IMAGES,
   CONTACT_METHODS,
+  GALLERY_IMAGES,
+  NAV_ITEMS,
+  SERVICES,
 } from "@/lib/constants";
 
 function App() {
