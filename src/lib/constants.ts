@@ -60,7 +60,7 @@ export const COMPETENCES: string[] = [
   "Décoration intérieur: Stucco, Sablé, Marbré etc...",
   "Béton apparent, ciré",
   "Entretient bois naturel",
-  "Faux plafond, cloison placo plâtre et mur alba",
+  "Faux plafond, cloison placoplâtre et mur alba",
 ];
 
 // Navigation menu items

@@ -41,7 +41,7 @@ function App() {
             paragraph2:
               "Notre équipe sera à votre écoute afin de réaliser le projet de vos rêves dans les meilleures conditions!",
           }}
-          tagline="Osez rêver en couleur"
+          tagline="Osez rêver en couleur!"
           ctaButtons={[
             { label: "Nous contacter", href: "#contact" },
             { label: "Nos prestations", href: "#services" },
