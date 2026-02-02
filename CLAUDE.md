@@ -139,6 +139,50 @@ To update content, edit the constants in `src/lib/constants.ts`:
 - Robots: `public/robots.txt`
 - Images have descriptive alt text for accessibility and SEO
 
+## Contact Form Integration
+
+**Implementation**: Custom contact form with Cloudflare Worker backend
+
+### Architecture
+
+The contact form is implemented in `src/components/features/contact-form.tsx` and integrated into the contact section. Form submissions are handled by a Cloudflare Worker with Resend email delivery.
+
+### Configuration
+
+**Worker URL**: Update the `WORKER_URL` constant in `contact-form.tsx` to point to your deployed Cloudflare Worker:
+```typescript
+const WORKER_URL = "https://contact-clouflare.turriancolordesign.workers.dev";
+```
+
+**Worker Repository**: `/home/dev-linux/code/contact-clouflare`
+
+### Features
+
+- **Form Validation**: Client-side and server-side validation
+- **Rate Limiting**: IP-based (5/hour) and email-based (3/day) limits via Cloudflare KV
+- **Email Delivery**: Powered by Resend API
+- **Error Handling**: User-friendly error messages with retry information
+- **Responsive Design**: Glass-morphism effect matching brand aesthetic
+- **Animations**: Motion library integration with scroll animations
+
+### Form Fields
+
+Required fields:
+- Prénom (First name) - max 50 characters
+- Nom (Last name) - max 50 characters
+- Email - validated format
+- Téléphone (Phone) - max 20 characters
+- Message - max 5000 characters
+
+### Styling
+
+The form follows the site's design system:
+- White text on green background (`--turrian-green`)
+- Glass-morphism effect (`bg-white/20 backdrop-blur-sm`)
+- White buttons with green text
+- Success messages: green background
+- Error messages: red background
+
 ## Analytics Setup
 
 **Implementation**: Umami Analytics - Privacy-focused, GDPR compliant

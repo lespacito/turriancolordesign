@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Section } from "@/components/ui/section";
 import { ContactCard } from "@/components/features/contact-card";
+import { ContactForm } from "@/components/features/contact-form";
 import type { ContactMethod } from "@/types";
 
 interface ContactSectionProps {
@@ -31,11 +32,13 @@ export function ContactSection({
           <h2 className="text-5xl font-bold mb-6">{heading}</h2>
           <h3 className="text-3xl font-bold mb-12 opacity-90">{subheading}</h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {methods.map((method) => (
               <ContactCard key={method.type} {...method} />
             ))}
           </div>
+
+          <ContactForm />
         </motion.div>
       </div>
     </Section>

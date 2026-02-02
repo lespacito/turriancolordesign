@@ -96,8 +96,8 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 export const CONTACT_METHODS: ContactMethod[] = [
   {
     icon: "📞",
-    label: "+41 79/518.95.98",
-    href: "tel:+41795189598",
+    label: "+41 76/442.95.98",
+    href: "tel:+41764429598",
     type: "phone",
   },
   {
