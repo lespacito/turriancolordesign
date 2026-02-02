@@ -112,7 +112,7 @@ export function ContactForm() {
       viewport={{ once: true }}
       transition={{ delay: 0.2 }}
       onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto mt-12 bg-white/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg"
+      className="max-w-2xl mx-auto mt-12 bg-background/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg"
     >
       {submitStatus.type && (
         <motion.div
@@ -120,8 +120,8 @@ export function ContactForm() {
           animate={{ opacity: 1, y: 0 }}
           className={`mb-6 p-4 rounded-lg border-2 ${
             submitStatus.type === "success"
-              ? "bg-success/10 text-white border-white/40"
-              : "bg-destructive/10 text-white border-destructive/40"
+              ? "bg-success/10 text-foreground border-background/40"
+              : "bg-destructive/10 text-foreground border-destructive/40"
           }`}
         >
           <p className="font-semibold">{submitStatus.message}</p>

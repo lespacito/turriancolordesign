@@ -109,6 +109,7 @@ export const CONTACT_METHODS: ContactMethod[] = [
   {
     icon: "📍",
     label: "Rte du Villard 3, 1652 Botterens",
+    href: "https://maps.google.com/maps?q=Rte+du+Villard+3,+1652+Botterens",
     type: "address",
   },
 ];
